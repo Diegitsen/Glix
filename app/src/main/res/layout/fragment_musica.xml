@@ -5,9 +5,33 @@
     tools:context="com.example.diego.glix.MusicaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="musica" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayoutTopMusica"
+            >
+
+            <include layout="@layout/layout_top_tabs_musica"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayViewPager"
+            android:layout_below="@id/relLayoutTopMusica"
+            >
+
+            <include layout="@layout/layout_center_viewpager"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 
 </FrameLayout>

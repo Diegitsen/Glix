@@ -3,9 +3,7 @@ package com.example.diego.glix
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +12,12 @@ import android.view.ViewGroup
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [MusicaFragment.OnFragmentInteractionListener] interface
+ * [AlbumFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [MusicaFragment.newInstance] factory method to
+ * Use the [AlbumFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MusicaFragment : Fragment() {
+class AlbumFragment : Fragment() {
 
     // TODO: Rename and change types of parameters
     private var mParam1: String? = null
@@ -38,7 +36,7 @@ class MusicaFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_musica, container, false)
+        return inflater!!.inflate(R.layout.fragment_album, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -53,6 +51,7 @@ class MusicaFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             mListener = context
         } else {
+            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -89,36 +88,16 @@ class MusicaFragment : Fragment() {
          * *
          * @param param2 Parameter 2.
          * *
-         * @return A new instance of fragment MusicaFragment.
+         * @return A new instance of fragment AlbumFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): MusicaFragment {
-            val fragment = MusicaFragment()
+        fun newInstance(param1: String, param2: String): AlbumFragment {
+            val fragment = AlbumFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
             args.putString(ARG_PARAM2, param2)
             fragment.arguments = args
             return fragment
         }
-    }
-
-    private fun setUpViewPager() {
-        val adapter =  new MyPagerAdapter(());
-        adapter.addFragment(PlaylistFragment()) //index 0
-        adapter.addFragment(MusicaFragment()) //index 1
-        adapter.addFragment(AlbumFragment()) //index 2
-        adapter.addFragment(ArtistaFragment()) //index 3
-
-        val viewPager = activity.findViewById(R.id.containerViewPager) as ViewPager
-        viewPager.adapter = adapter
-
-        val tabLayout = activity.findViewById<View>(R.id.tabsMusica) as TabLayout
-        tabLayout.setupWithViewPager(viewPager)
-
-        tabLayout.getTabAt(0)!!.setIcon(R.drawable.icplaylist)
-        tabLayout.getTabAt(1)!!.setIcon(R.drawable.icmusica)
-        tabLayout.getTabAt(2)!!.setIcon(R.drawable.icalbum)
-        tabLayout.getTabAt(3)!!.setIcon(R.drawable.icartista)
-
     }
 }// Required empty public constructor
