@@ -10,7 +10,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/containerViewPager">
+
+            <android.support.design.widget.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tabsMusicaa"
+                android:background="@drawable/white_grey_border_bottom">
+
+
+            </android.support.design.widget.TabLayout>
+
+        </android.support.v4.view.ViewPager>
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>
+
+
+ <!--<RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/relLayoutTopMusica"
@@ -18,20 +41,14 @@
 
             <include layout="@layout/layout_top_tabs_musica"/>
 
-        </RelativeLayout>
+        </RelativeLayout>-->
+    <!--
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relLayViewPager"
+        >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayViewPager"
-            android:layout_below="@id/relLayoutTopMusica"
-            >
+    <include layout="@layout/layout_center_viewpager"/>
 
-            <include layout="@layout/layout_center_viewpager"/>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-
-</FrameLayout>
+    </RelativeLayout>-->

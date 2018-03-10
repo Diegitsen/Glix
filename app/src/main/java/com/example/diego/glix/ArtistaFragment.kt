@@ -51,7 +51,6 @@ class ArtistaFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             mListener = context
         } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -91,11 +90,11 @@ class ArtistaFragment : Fragment() {
          * @return A new instance of fragment ArtistaFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): ArtistaFragment {
+        fun newInstance(param1: String, param2: Context): ArtistaFragment {
             val fragment = ArtistaFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
+            args.putString(ARG_PARAM2, param2.toString())
             fragment.arguments = args
             return fragment
         }

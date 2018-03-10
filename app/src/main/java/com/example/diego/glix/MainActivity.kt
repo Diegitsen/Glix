@@ -7,7 +7,8 @@ import android.view.View
 import android.widget.TextView
 import com.roughike.bottombar.BottomBar
 import com.roughike.bottombar.OnTabSelectListener
-import kotlinx.android.synthetic.main.layout_top_toolbar.*
+import kotlinx.android.synthetic.main.layout_center_viewpager.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,9 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         tvTitulo = findViewById(R.id.toolbarTitulo)
 
         val bottomBar = findViewById<View>(R.id.bottomBar) as BottomBar
+
 
         bottomBar.setOnTabSelectListener { tabId ->
             val fragmentManager = supportFragmentManager

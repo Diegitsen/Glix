@@ -51,7 +51,6 @@ class AlbumFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             mListener = context
         } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -91,11 +90,11 @@ class AlbumFragment : Fragment() {
          * @return A new instance of fragment AlbumFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): AlbumFragment {
+        fun newInstance(param1: String, param2: Context): AlbumFragment {
             val fragment = AlbumFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
+            args.putString(ARG_PARAM2, param2.toString())
             fragment.arguments = args
             return fragment
         }
