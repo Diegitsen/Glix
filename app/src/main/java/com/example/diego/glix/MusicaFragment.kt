@@ -11,13 +11,8 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.layout_center_viewpager.*
-import com.ogaclejapan.smarttablayout.SmartTabLayout
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
-import kotlinx.android.synthetic.main.fragment_musica.*
 import kotlinx.android.synthetic.main.fragment_musica.view.*
-import kotlinx.android.synthetic.main.layout_top_tabs_musica.*
+import kotlinx.android.synthetic.main.layout_center_viewpager.view.*
 
 
 /**
@@ -30,17 +25,11 @@ import kotlinx.android.synthetic.main.layout_top_tabs_musica.*
  */
 class MusicaFragment : Fragment() {
 
-    //pageadapter
-    private var mSectionsPagerAdapter: PageAdapter? = null
-    //viewpager
-    private var mViewPager: ViewPager? = null
 
     private var adapter:SectionPageAdapter? = null
     private var viewPager:ViewPager?=null
     private var tabLayout:TabLayout?=null
 
-    //new
-    var pagerAdapter:CostomPageAdapter?=null
 
 
 
@@ -75,7 +64,7 @@ class MusicaFragment : Fragment() {
         viewPager = view.containerViewPager as ViewPager
         viewPager!!.adapter = adapter
 
-        tabLayout = view.findViewById<View>(R.id.tabsMusicaa) as TabLayout
+        tabLayout = view.findViewById<View>(R.id.tabsMusica) as TabLayout
         tabLayout!!.setupWithViewPager(viewPager)
 
         tabLayout!!.getTabAt(0)!!.setIcon(R.drawable.icplaylist)
@@ -150,65 +139,8 @@ class MusicaFragment : Fragment() {
         }
     }
 
-    private fun setUpViewPager() {
-
-        adapter = SectionPageAdapter(activity.supportFragmentManager) as SectionPageAdapter
-        adapter!!.addFragment(PlaylistFragment()) //index 0
-        adapter!!.addFragment(CancionFragment()) //index 1
-        adapter!!.addFragment(AlbumFragment()) //index 2
-        adapter!!.addFragment(ArtistaFragment()) //index 3
-
-        viewPager = activity.containerViewPager as ViewPager
-        viewPager!!.adapter = adapter
-
-        tabLayout = activity.findViewById<View>(R.id.tabsMusica) as TabLayout
-        tabLayout!!.setupWithViewPager(viewPager)
-
-        tabLayout!!.getTabAt(0)!!.setIcon(R.drawable.icplaylist)
-        tabLayout!!.getTabAt(1)!!.setIcon(R.drawable.iccancion)
-        tabLayout!!.getTabAt(2)!!.setIcon(R.drawable.icalbum)
-        tabLayout!!.getTabAt(3)!!.setIcon(R.drawable.icartista)
-
-    }
 
 
 
-    /* mSectionsPagerAdapter = PageAdapter(activity.supportFragmentManager, activity) as PageAdapter
-     mViewPager = activity.findViewById<ViewPager?>(R.id.containerViewPager) as ViewPager
-     mViewPager!!.adapter = mSectionsPagerAdapter
 
-     tabLayout = activity.findViewById<View>(R.id.tabsMusica) as TabLayout
-     tabLayout!!.setupWithViewPager(mViewPager)
-
-     //icons
-     tabLayout!!.getTabAt(0)!!.setIcon(R.drawable.icplaylist)
-     tabLayout!!.getTabAt(1)!!.setIcon(R.drawable.iccancion)
-     tabLayout!!.getTabAt(2)!!.setIcon(R.drawable.icalbum)
-     tabLayout!!.getTabAt(3)!!.setIcon(R.drawable.icartista)*/
 }// Required empty public constructor
-
-//another fail try
-/* val adapter = FragmentPagerItemAdapter(
-                activity.supportFragmentManager, FragmentPagerItems.with(activity)
-                .add("Playlist", PlaylistFragment::class.java)
-                .add("Cancion", CancionFragment::class.java)
-                .add("Artista", ArtistaFragment::class.java)
-                .add("Album", AlbumFragment::class.java)
-                .create())
-
-        val viewPager = containerViewPager as ViewPager
-        viewPager!!.adapter = adapter
-
-        val viewPagerTab = viewpagertab as SmartTabLayout
-        viewPagerTab!!.setViewPager(viewPager)*/
-
-
-
-/* pagerAdapter = CostomPageAdapter(activity.supportFragmentManager)
- pagerAdapter!!.addFragments(PlaylistFragment(), "Playlist")
- pagerAdapter!!.addFragments(CancionFragment(), "Cancion")
- pagerAdapter!!.addFragments(AlbumFragment(), "Album")
- pagerAdapter!!.addFragments(ArtistaFragment(), "Artista")
-
- containerViewPager.adapter = pagerAdapter
- tabsMusicaa.setupWithViewPager(containerViewPager)*/
