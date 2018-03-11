@@ -4,13 +4,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <android.support.v4.view.ViewPager
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/containerViewPager">
+            android:id="@+id/lvSongs">
 
+        </ListView>
 
-        </android.support.v4.view.ViewPager>
 
     </RelativeLayout>
 

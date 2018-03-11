@@ -1,4 +1,4 @@
-package com.example.diego.glix;
+package com.example.diego.glix.Musica;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

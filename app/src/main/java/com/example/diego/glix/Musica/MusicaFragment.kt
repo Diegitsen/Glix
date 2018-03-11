@@ -1,18 +1,21 @@
-package com.example.diego.glix
+package com.example.diego.glix.Musica
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.support.v4.view.ViewPager
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_musica.view.*
+import android.widget.BaseAdapter
+import com.example.diego.glix.R
 import kotlinx.android.synthetic.main.layout_center_viewpager.view.*
+import kotlinx.android.synthetic.main.layout_song_ticket.view.*
+import java.util.ArrayList
 
 
 /**
@@ -26,7 +29,7 @@ import kotlinx.android.synthetic.main.layout_center_viewpager.view.*
 class MusicaFragment : Fragment() {
 
 
-    private var adapter:SectionPageAdapter? = null
+    private var adapter: SectionPageAdapter? = null
     private var viewPager:ViewPager?=null
     private var tabLayout:TabLayout?=null
 
@@ -138,6 +141,8 @@ class MusicaFragment : Fragment() {
             return fragment
         }
     }
+
+
 
 
 

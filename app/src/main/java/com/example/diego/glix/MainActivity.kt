@@ -2,12 +2,10 @@ package com.example.diego.glix
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.view.View
 import android.widget.TextView
+import com.example.diego.glix.Musica.MusicaFragment
 import com.roughike.bottombar.BottomBar
-import com.roughike.bottombar.OnTabSelectListener
-import kotlinx.android.synthetic.main.layout_center_viewpager.*
 
 
 class MainActivity : AppCompatActivity() {

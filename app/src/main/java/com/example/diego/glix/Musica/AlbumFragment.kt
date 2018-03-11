@@ -1,4 +1,4 @@
-package com.example.diego.glix
+package com.example.diego.glix.Musica
 
 import android.content.Context
 import android.net.Uri
@@ -7,17 +7,18 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.diego.glix.R
 
 
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [CancionFragment.OnFragmentInteractionListener] interface
+ * [AlbumFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [CancionFragment.newInstance] factory method to
+ * Use the [AlbumFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CancionFragment : Fragment() {
+class AlbumFragment : Fragment() {
 
     // TODO: Rename and change types of parameters
     private var mParam1: String? = null
@@ -36,7 +37,7 @@ class CancionFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_cancion, container, false)
+        return inflater!!.inflate(R.layout.fragment_album, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -87,11 +88,11 @@ class CancionFragment : Fragment() {
          * *
          * @param param2 Parameter 2.
          * *
-         * @return A new instance of fragment CancionFragment.
+         * @return A new instance of fragment AlbumFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: Context): CancionFragment {
-            val fragment = CancionFragment()
+        fun newInstance(param1: String, param2: Context): AlbumFragment {
+            val fragment = AlbumFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
             args.putString(ARG_PARAM2, param2.toString())
