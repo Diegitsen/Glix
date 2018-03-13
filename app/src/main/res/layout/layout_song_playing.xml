@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:background="@color/grey"
         >
@@ -19,54 +19,56 @@
             >
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/icalbum"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/super17"
                 android:id="@+id/ivAlbumSongPlaying"
                 />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_weight="20"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
+
             >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="15">
+                >
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="260dp"
+                    android:layout_height="20dp"
                     android:id="@+id/tvSongSongPlaying"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:text="Song"
 
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="260dp"
+                    android:layout_height="17dp"
                     android:id="@+id/tvArtistSongPlaying"
                     android:text="Artist"
-                    android:textSize="13dp"
+                    android:textSize="12dp"
                     />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/icplay"/>
 
             </LinearLayout>

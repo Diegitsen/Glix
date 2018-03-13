@@ -26,6 +26,7 @@ import java.util.ArrayList
 import android.widget.MediaController.MediaPlayerControl;
 import kotlinx.android.synthetic.main.fragment_cancion.*
 import kotlinx.android.synthetic.main.fragment_cancion.view.*
+import kotlinx.android.synthetic.main.layout_song_playing.*
 
 
 /**
@@ -163,6 +164,8 @@ class CancionFragment : Fragment()  {
             val song = this.myListSong[position]
             var url:String?=null
             myView.tvTituloCancion.text = song.song
+
+
             //myView.tvAutor.text = song.author
             myView.LinearLayoutCancion.setOnClickListener(View.OnClickListener {
 
@@ -172,6 +175,12 @@ class CancionFragment : Fragment()  {
                 mp = MediaPlayer()
                 try {
                     mp!!.setDataSource(song.songURL)
+
+                    //miniatura
+                    tvSongSongPlaying.text = song.song
+                    tvArtistSongPlaying.text = song.album
+
+
                     url = song.songURL
                     mp!!.prepare()
                     mp!!.start()
