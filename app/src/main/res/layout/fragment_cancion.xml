@@ -13,4 +13,37 @@
         <include layout="@layout/layout_list_view"/>
     </RelativeLayout>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:id="@+id/llSongIsPlaying">
+
+        <LinearLayout
+            android:id="@+id/llSeekbarPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <include layout="@layout/layout_seekbar_playing"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSongPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <include layout="@layout/layout_song_playing"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
 </FrameLayout>

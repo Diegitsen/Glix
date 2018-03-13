@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.Toast
 import com.example.diego.glix.R
@@ -22,6 +23,9 @@ import kotlinx.android.synthetic.main.layout_list_view.*
 import kotlinx.android.synthetic.main.layout_list_view.view.*
 import kotlinx.android.synthetic.main.layout_song_ticket.view.*
 import java.util.ArrayList
+import android.widget.MediaController.MediaPlayerControl;
+import kotlinx.android.synthetic.main.fragment_cancion.*
+import kotlinx.android.synthetic.main.fragment_cancion.view.*
 
 
 /**
@@ -32,7 +36,7 @@ import java.util.ArrayList
  * Use the [CancionFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CancionFragment : Fragment() {
+class CancionFragment : Fragment()  {
 
     //vars
     var listSong = ArrayList<SongInfo>()
@@ -65,6 +69,10 @@ class CancionFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         viewxd = inflater!!.inflate(R.layout.fragment_cancion, container, false)
+
+
+
+        viewxd!!.llSongIsPlaying.visibility = View.INVISIBLE
 
 
         checkUserPermsions()
@@ -160,6 +168,7 @@ class CancionFragment : Fragment() {
 
                 // ivAlbum.setBackgroundResource(R.drawable.islavistaworshipdos)
                 // bPlayStop.setBackgroundResource(R.drawable.close)
+                viewxd!!.llSongIsPlaying.visibility = View.VISIBLE
                 mp = MediaPlayer()
                 try {
                     mp!!.setDataSource(song.songURL)
