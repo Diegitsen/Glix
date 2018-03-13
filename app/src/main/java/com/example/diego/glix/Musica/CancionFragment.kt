@@ -26,6 +26,7 @@ import java.util.ArrayList
 import android.widget.MediaController.MediaPlayerControl;
 import kotlinx.android.synthetic.main.fragment_cancion.*
 import kotlinx.android.synthetic.main.fragment_cancion.view.*
+import kotlinx.android.synthetic.main.layout_seekbar_playing.*
 import kotlinx.android.synthetic.main.layout_song_playing.*
 
 
@@ -48,6 +49,7 @@ class CancionFragment : Fragment()  {
     var songName:String?=null
     var songAlbum:String?=null
     var viewxd:View?=null
+    var cont = 0;
     //var lvSong: ListView? = null
 
 
@@ -163,6 +165,7 @@ class CancionFragment : Fragment()  {
             val myView = layoutInflater.inflate(R.layout.layout_song_ticket, null)
             val song = this.myListSong[position]
             var url:String?=null
+            val songPlaying:Boolean? = mp?.isPlaying
             myView.tvTituloCancion.text = song.song
 
 
@@ -173,28 +176,43 @@ class CancionFragment : Fragment()  {
                 // bPlayStop.setBackgroundResource(R.drawable.close)
                 viewxd!!.llSongIsPlaying.visibility = View.VISIBLE
                 mp = MediaPlayer()
-                try {
-                    mp!!.setDataSource(song.songURL)
-
-                    //miniatura
-                    tvSongSongPlaying.text = song.song
-                    tvArtistSongPlaying.text = song.album
 
 
-                    url = song.songURL
-                    mp!!.prepare()
-                    mp!!.start()
-                    //sbProgress.max = mp!!.duration
-                    // tvAlbumPlaying.text = song.author.toString()
-                    //tvSongPlaying.text = song.song.toString()
-                } catch(ex: Exception) {
+                    try {
+                        mp!!.setDataSource(song.songURL)
 
-                }
+                        //miniatura
+                        tvSongSongPlaying.text = song.song
+                        tvArtistSongPlaying.text = song.album
+
+
+                        url = song.songURL
+                        mp!!.prepare()
+                        mp!!.start()
+                        sbProgress.max = mp!!.duration
+                        // tvAlbumPlaying.text = song.author.toString()
+                        //tvSongPlaying.text = song.song.toString()
+
+                        bPlayPausePlaying!!.setImageResource(R.drawable.icpause)
+
+
+
+                    } catch(ex: Exception) {
+
+                    }
+
+
+
+
+
+
 
             })
 
             return myView
         }
+
+
 
         override fun getItem(item: Int): Any {
             return this.myListSong[item]

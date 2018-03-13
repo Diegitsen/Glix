@@ -69,7 +69,8 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/icplay"/>
+                    android:id="@+id/bPlayPausePlaying"
+                    android:background="@drawable/icpause"/>
 
             </LinearLayout>
 
