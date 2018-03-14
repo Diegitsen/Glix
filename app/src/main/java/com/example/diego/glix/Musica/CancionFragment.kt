@@ -11,13 +11,12 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.support.v4.media.session.MediaControllerCompat
+import android.support.v4.media.session.PlaybackStateCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import com.example.diego.glix.R
 import kotlinx.android.synthetic.main.layout_list_view.*
 import kotlinx.android.synthetic.main.layout_list_view.view.*
@@ -49,7 +48,9 @@ class CancionFragment : Fragment()  {
     var songName:String?=null
     var songAlbum:String?=null
     var viewxd:View?=null
+    var bPlayPause:ImageButton?=null
     var cont = 0;
+
     //var lvSong: ListView? = null
 
 
@@ -76,6 +77,13 @@ class CancionFragment : Fragment()  {
 
 
         viewxd!!.llSongIsPlaying.visibility = View.INVISIBLE
+        viewxd!!.llSongIsPlaying.isEnabled = false
+
+        //OJO no hay viewxd
+
+        bPlayPause = viewxd!!.findViewById(R.id.bPlayPausePlaying)
+        bPlayPause!!.isEnabled = true
+        bPlayPause!!.setOnClickListener(mButtonListener)
 
 
         checkUserPermsions()
@@ -165,47 +173,29 @@ class CancionFragment : Fragment()  {
             val myView = layoutInflater.inflate(R.layout.layout_song_ticket, null)
             val song = this.myListSong[position]
             var url:String?=null
-            val songPlaying:Boolean? = mp?.isPlaying
             myView.tvTituloCancion.text = song.song
 
-
-            //myView.tvAutor.text = song.author
             myView.LinearLayoutCancion.setOnClickListener(View.OnClickListener {
 
-                // ivAlbum.setBackgroundResource(R.drawable.islavistaworshipdos)
-                // bPlayStop.setBackgroundResource(R.drawable.close)
+                //miniatura
                 viewxd!!.llSongIsPlaying.visibility = View.VISIBLE
+                viewxd!!.llSongIsPlaying.isEnabled = false
+
                 mp = MediaPlayer()
 
 
-                    try {
-                        mp!!.setDataSource(song.songURL)
+                try {
+                    mp!!.setDataSource(song.songURL)
+                    //miniatura
+                    tvSongSongPlaying.text = song.song
+                    tvArtistSongPlaying.text = song.album
+                    url = song.songURL
+                    mp!!.prepare()
+                    mp!!.start()
+                    sbProgress.max = mp!!.duration
+                } catch(ex: Exception) {
 
-                        //miniatura
-                        tvSongSongPlaying.text = song.song
-                        tvArtistSongPlaying.text = song.album
-
-
-                        url = song.songURL
-                        mp!!.prepare()
-                        mp!!.start()
-                        sbProgress.max = mp!!.duration
-                        // tvAlbumPlaying.text = song.author.toString()
-                        //tvSongPlaying.text = song.song.toString()
-
-                        bPlayPausePlaying!!.setImageResource(R.drawable.icpause)
-
-
-
-                    } catch(ex: Exception) {
-
-                    }
-
-
-
-
-
-
+                }
 
             })
 
@@ -247,7 +237,7 @@ class CancionFragment : Fragment()  {
                 activity.runOnUiThread {
                     if(mp!=null)
                     {
-                        //sbProgress.progress = mp!!.currentPosition
+                        sbProgress.progress = mp!!.currentPosition
                     }
                 }
             }
@@ -316,6 +306,25 @@ class CancionFragment : Fragment()  {
         }
     }
 
+    //button play  pause
+    private val mButtonListener = View.OnClickListener { v ->
+        val controller = MediaControllerCompat.getMediaController(activity)
+        val stateObj = controller.playbackState
+        val state = stateObj?.state ?: PlaybackStateCompat.STATE_NONE
+        when (v.id) {
+            R.id.bPlayPausePlaying -> {
+                if (state == PlaybackStateCompat.STATE_PAUSED ||
+                        state == PlaybackStateCompat.STATE_STOPPED ||
+                        state == PlaybackStateCompat.STATE_NONE) {
+                    mp!!.start()
+                } else if (state == PlaybackStateCompat.STATE_PLAYING ||
+                        state == PlaybackStateCompat.STATE_BUFFERING ||
+                        state == PlaybackStateCompat.STATE_CONNECTING) {
+                    mp!!.pause()
+                }
+            }
+        }
+    }
 
 
 }// Required empty public constructor
